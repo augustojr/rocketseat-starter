@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso Javascript</title>
+    </head>
+    <body>
+        <div id="app">
+            <button id="botao_criar">Criar novo elemento</button>
+        </div>
+        
+        <script>
+            var containerElement = document.querySelector('#app');
+            var btnElement = document.querySelector('#botao_criar');
+            
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random()*16)];
+                }
+                return color;
+            }
+            
+            btnElement.onclick = function() {
+                var boxElement = document.createElement('div');
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = '#f00';
+                
+                boxElement.onmouseover = function() {
+                    boxElement.style.backgroundColor = getRandomColor();        
+                }
+                
+                containerElement.appendChild(boxElement);
+            };            
+        </script>
+    </body>
+</html>
